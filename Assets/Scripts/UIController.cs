@@ -22,7 +22,9 @@ public class UIController : MonoBehaviour
         }
 
         if(GameController.gameStatus == "PointsShortage"){
-            mainText.text = mainMessage.datas[1].text; 
+            mainText.text = mainMessage.datas[1].text;
+
+            //マウスの左クリックかリターンがおされたら
             if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Return)){
                 GameController.gameStatus = "wait"; 
             }

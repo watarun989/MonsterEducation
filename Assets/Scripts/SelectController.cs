@@ -4,62 +4,68 @@ using UnityEngine;
 
 public class SelectController : MonoBehaviour
 {
-    public GameObject ButtonPanel; 
-    public int consumePoint1 = 10; 
-    public int consumePoint2 = 10; 
-    public int consumePoint3 = 10; 
+    public GameObject buttonPanel;
+    public int consumePoint01 = 10;
+    public int consumePoint02 = 10;
+    public int consumePoint03 = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        ButtonPanel.SetActive(true); 
+        buttonPanel.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameController.gameStatus == "PointsShortage" || GameController.gameStatus == "FinishSelected"){
-            ButtonPanel.SetActive(false); 
+        if (GameController.gameStatus == "PointsShortage" || GameController.gameStatus == "FinishSelected")
+        {
+            buttonPanel.SetActive(false);
         }
 
-        if(GameController.gameStatus == "wait"){
-            ButtonPanel.SetActive(true); 
-        }
-    }
-
-    public void Selected1(){
-        if(GameController.timePoint < consumePoint1){
-            GameController.gameStatus = "PointsShortage"; 
-        }
-
-        if(GameController.timePoint >= consumePoint1){
-            Debug.Log("Event Occure"); 
-            GameController.gameStatus = "PointsShortage"; 
-            GameController.timePoint = GameController.timePoint - consumePoint1; 
+        if (GameController.gameStatus == "wait")
+        {
+            buttonPanel.SetActive(true);
         }
     }
 
-    public void Selected2(){
-        if(GameController.timePoint < consumePoint2){
-            GameController.gameStatus = "PointsShortage"; 
+    public void Selected01()
+    {
+        //timePointが選択肢1の消費ポイントより小さい場合
+        if (GameController.timePoint < consumePoint01)
+        {
+            GameController.gameStatus = "PointsShortage";
         }
-
-        if(GameController.timePoint >= consumePoint2){
-            Debug.Log("Event Occure"); 
-            GameController.gameStatus = "PointsShortage"; 
-            GameController.timePoint = GameController.timePoint - consumePoint2; 
+        else
+        {
+            Debug.Log("Event Occure");
+            GameController.timePoint -= consumePoint01;
         }
     }
 
-    public void Selected3(){
-        if(GameController.timePoint < consumePoint3){
-            GameController.gameStatus = "PointsShortage"; 
+    public void Selected02()
+    {
+        if (GameController.timePoint < consumePoint02)
+        {
+            GameController.gameStatus = "PointsShortage";
         }
+        else
+        {
+            Debug.Log("Event Occure");
+            GameController.timePoint -= consumePoint02;
+        }
+    }
 
-        if(GameController.timePoint >= consumePoint3){
-            Debug.Log("Event Occure"); 
-            GameController.gameStatus = "PointsShortage"; 
-            GameController.timePoint = GameController.timePoint - consumePoint3; 
+    public void Selected03()
+    {
+        if (GameController.timePoint < consumePoint03)
+        {
+            GameController.gameStatus = "PointsShortage";
+        }
+        else
+        {
+            Debug.Log("Event Occure");
+            GameController.timePoint -= consumePoint03;
         }
     }
 }

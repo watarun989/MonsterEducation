@@ -17,6 +17,11 @@ public class TimePointController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timePoint.text = GameController.timePoint.ToString(); 
+        //選択肢によって消費され変化するGameControllerのtimePointが、把握していた数値(current)と異なっていることに気づいたら、値を更新してパネルに再表示
+        if(GameController.timePoint != currentTimePoint)
+        {
+            currentTimePoint = GameController.timePoint;
+            timePoint.text = currentTimePoint.ToString();
+        }
     }
 }
