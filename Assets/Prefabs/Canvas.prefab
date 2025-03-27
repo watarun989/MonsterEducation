@@ -1424,6 +1424,7 @@ GameObject:
   - component: {fileID: 7059790331108262127}
   - component: {fileID: 3053952659268000064}
   - component: {fileID: 8222374379831737915}
+  - component: {fileID: 1764336471853921056}
   m_Layer: 5
   m_Name: SelectPanel
   m_TagString: Untagged
@@ -1489,6 +1490,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1764336471853921056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4281077490544978390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed120565569740d9a0f5b15f0af3537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonPanel: {fileID: 0}
+  consumePoint1: 10
+  consumePoint2: 10
+  consumePoint3: 10
 --- !u!1 &5025195681267261343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2101,7 @@ GameObject:
   - component: {fileID: 6335121877040849523}
   - component: {fileID: 6490016362367208014}
   - component: {fileID: 8668125477221792690}
+  - component: {fileID: 1975270765301105025}
   m_Layer: 5
   m_Name: TimePanel
   m_TagString: Untagged
@@ -2150,6 +2168,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1975270765301105025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365943832543737572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778423a6c191e429fb199c2468a6789f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timePoint: {fileID: 0}
 --- !u!1 &6986563048322971289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2539,7 @@ GameObject:
   - component: {fileID: 3695553082081072140}
   - component: {fileID: 6597789765721182665}
   - component: {fileID: 2510969576597412709}
+  - component: {fileID: 5268469335203566378}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -2573,6 +2605,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5268469335203566378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488592439153146813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a232794683f41278125b8c547e30e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainText: {fileID: 0}
+  mainMessage: {fileID: 0}
 --- !u!1 &8619648015271130198
 GameObject:
   m_ObjectHideFlags: 0
