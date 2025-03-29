@@ -1905,6 +1905,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4389117697938118, guid: 28b03608ec7315044906c829c8f86f8b, type: 3}
   m_PrefabInstance: {fileID: 187246493}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &192944920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8163036409927259776, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
+  m_PrefabInstance: {fileID: 683174926}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &210709602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5148,6 +5153,18 @@ PrefabInstance:
       propertyPath: timePoint
       value: 
       objectReference: {fileID: 683174927}
+    - target: {fileID: 2114273582435516558, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
+      propertyPath: finishPanel
+      value: 
+      objectReference: {fileID: 192944920}
+    - target: {fileID: 2811101490616767681, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192944920}
+    - target: {fileID: 2811101490616767681, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3695553082081072140, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

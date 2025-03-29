@@ -1502,10 +1502,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed120565569740d9a0f5b15f0af3537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonPanel: {fileID: 0}
-  consumePoint1: 10
-  consumePoint2: 10
-  consumePoint3: 10
+  buttonPanel: {fileID: 0}
+  consumePoint01: 10
+  consumePoint02: 10
+  consumePoint03: 10
 --- !u!1 &5025195681267261343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2462,7 @@ GameObject:
   - component: {fileID: 6652711331939373414}
   - component: {fileID: 4862308232449868330}
   - component: {fileID: 2511449411131862450}
+  - component: {fileID: 2114273582435516558}
   m_Layer: 5
   m_Name: FinishPanel
   m_TagString: Untagged
@@ -2528,6 +2529,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2114273582435516558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8163036409927259776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: addbc49403c4a46f1bd828736d41fc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finishPanel: {fileID: 1244966021601591755}
+  confirmPanel: {fileID: 3175083948787918302}
 --- !u!1 &8488592439153146813
 GameObject:
   m_ObjectHideFlags: 0
