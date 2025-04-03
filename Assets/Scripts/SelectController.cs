@@ -5,6 +5,8 @@ using UnityEngine;
 public class SelectController : MonoBehaviour
 {
     public GameObject buttonPanel;
+    bool isDisplay; //ボタンパネルがすでに表示されているかどうかの判別
+
     public int consumePoint01 = 10;
     public int consumePoint02 = 10;
     public int consumePoint03 = 10;
@@ -21,11 +23,16 @@ public class SelectController : MonoBehaviour
         if (GameController.gameStatus == "PointsShortage" || GameController.gameStatus == "FinishSelected")
         {
             buttonPanel.SetActive(false);
+            isDisplay = false; //表示されていないという判定にする
         }
 
         if (GameController.gameStatus == "wait")
         {
-            buttonPanel.SetActive(true);
+            if (!isDisplay)
+            { 
+                buttonPanel.SetActive(true);
+                isDisplay = true;
+            }
         }
     }
 
