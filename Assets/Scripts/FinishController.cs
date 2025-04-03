@@ -29,7 +29,6 @@ public class FinishController : MonoBehaviour
     public void onFinishYes(){
         Debug.Log("Finished"); 
         StartCoroutine(onFinishYesCoroutine()); 
-        ReloadScene(); 
     }
 
     public void onFinishNo(){
@@ -45,5 +44,6 @@ public class FinishController : MonoBehaviour
 
     IEnumerator onFinishYesCoroutine(){
         yield return new WaitForSeconds(5.0f); 
+        ReloadScene(); 
     }
 }
