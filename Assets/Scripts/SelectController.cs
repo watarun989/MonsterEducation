@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class SelectController : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("Event Occure");
             GameController.timePoint -= consumePoint01;
+            SceneManager.LoadScene("Attack"); 
         }
     }
 

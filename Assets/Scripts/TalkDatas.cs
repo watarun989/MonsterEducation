@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class TalkData
 {
+    [TextArea(3,10)]
     public string text; 
 }
 
