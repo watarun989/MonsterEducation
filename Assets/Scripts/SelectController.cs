@@ -62,6 +62,7 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("Event Occure");
             GameController.timePoint -= consumePoint02;
+            SceneManager.LoadScene("Defence"); 
         }
     }
 
