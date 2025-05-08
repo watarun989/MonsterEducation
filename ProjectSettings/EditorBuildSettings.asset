@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defence.unity
     guid: 2d8bdbe5c222c40c6a254168a59bd945
+  - enabled: 1
+    path: Assets/Scenes/Speed.unity
+    guid: 79b46866d8bf04bf2a2ef1098de5b1db
   m_configObjects: {}

@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4908765312130676, guid: 47356d574ebc3a545bfaef26eb02a2ea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 886.4
+      value: 890.33
       objectReference: {fileID: 0}
     - target: {fileID: 4908765312130676, guid: 47356d574ebc3a545bfaef26eb02a2ea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -546,13 +546,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202494959}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3420201, y: -0, z: -0, w: 0.9396927}
-  m_LocalPosition: {x: 0.020019531, y: 5, z: -5}
+  m_LocalRotation: {x: 0, y: 0.9396927, z: -0.3420201, w: 0}
+  m_LocalPosition: {x: 0.020019531, y: 5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2132102777}
-  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 40, y: 180, z: 0}
 --- !u!224 &1408805613 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9049546203428735545, guid: 3a529d1b9098a1041af5f3c2ce1baf08, type: 3}
@@ -1071,8 +1071,8 @@ MonoBehaviour:
   statusUpTalk: {fileID: 11400000, guid: 6be68340cd21d4705afcf5dcd3c898f4, type: 2}
   monsterAnimator: {fileID: 1409373587}
   dummyAnimator: {fileID: 0}
-  statusText: defence power
-  currentStatus: defence
+  statusText: speed
+  currentStatus: speed
   statusUpPoint: 10
   statusUpText: {fileID: 1761395238}
 --- !u!1 &1761395238
@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: {fileID: 1658129432}
   radius: 3
-  speed: 1
+  speed: -1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

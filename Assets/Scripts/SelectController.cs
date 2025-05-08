@@ -76,6 +76,7 @@ public class SelectController : MonoBehaviour
         {
             Debug.Log("Event Occure");
             GameController.timePoint -= consumePoint03;
+            SceneManager.LoadScene("Speed"); 
         }
     }
 }

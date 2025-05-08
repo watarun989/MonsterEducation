@@ -23,5 +23,9 @@ public class Running : MonoBehaviour
         float z = Mathf.Sin(angle) * radius; 
         Vector3 newPosition = center.position + new Vector3 (x,0,z); 
         transform.position = newPosition; 
+
+        Vector3 dir = (center.position - transform.position).normalized; 
+        Quaternion lookRot = Quaternion.LookRotation(Vector3.Cross(dir,Vector3.up)); 
+        transform.rotation = Quaternion.Slerp(transform.rotation,lookRot,Time.deltaTime * 5f); 
     }
 }
