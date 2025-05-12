@@ -43,7 +43,7 @@ public class FinishController : MonoBehaviour
     }
 
     IEnumerator onFinishYesCoroutine(){
-        yield return new WaitForSeconds(5.0f); 
-        ReloadScene(); 
+        yield return new WaitForSeconds(2.0f); 
+        SceneManager.LoadScene("Sleep"); 
     }
 }

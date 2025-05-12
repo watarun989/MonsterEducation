@@ -4781,6 +4781,7 @@ MonoBehaviour:
   cameraB: {fileID: 330585545}
   zzz: {fileID: 1091447712}
   buttonPanel: {fileID: 1126349171}
+  sleepText: {fileID: 822474939}
 --- !u!1001 &1314839649
 PrefabInstance:
   m_ObjectHideFlags: 0
