@@ -5089,9 +5089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b413f3ec5eb2e4797a8dfb2ebc34608b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraA: {fileID: 1652853686}
-  cameraB: {fileID: 330585545}
-  cameraC: {fileID: 0}
+  cameraA: {fileID: 1652853682}
+  cameraB: {fileID: 330585543}
+  cameraC: {fileID: 1692574024}
   zzz: {fileID: 1091447712}
   buttonPanel: {fileID: 1126349171}
   sleepText: {fileID: 822474939}
@@ -6283,7 +6283,7 @@ GameObject:
   - component: {fileID: 1652853685}
   - component: {fileID: 1652853684}
   m_Layer: 0
-  m_Name: CameraA
+  m_Name: SleepCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8081,8 +8081,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 1294348692}
   - {fileID: 1482732642}
+  - {fileID: 1294348692}
   - {fileID: 2082294753}
   - {fileID: 576519038}
   - {fileID: 1043984382}

@@ -14,7 +14,7 @@ public class FinishController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        daysText.text = "1"; 
+        daysText.text = days.ToString(); 
         confirmPanel.SetActive(false); 
     }
 
