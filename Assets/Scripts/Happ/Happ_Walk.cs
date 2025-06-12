@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Happ_Walk : MonoBehaviour
 {
-    public float speed = 2; 
-    public bool runStart; 
+    public float speed = 5; 
+    static public bool runStart; 
 
     // Start is called before the first frame update
     void Start()

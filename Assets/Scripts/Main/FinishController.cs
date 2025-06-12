@@ -67,6 +67,12 @@ public class FinishController : MonoBehaviour
 
     IEnumerator onFinishYesCoroutine(){
         yield return new WaitForSeconds(2.0f); 
-        SceneManager.LoadScene("Sleep"); 
+        int randScene = Random.Range(0,2); 
+        if(randScene == 0){
+            SceneManager.LoadScene("Sleep"); 
+        }else{
+            SceneManager.LoadScene("Puddle"); 
+        }
+        
     }
 }
