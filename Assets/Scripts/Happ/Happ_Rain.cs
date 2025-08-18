@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro; 
 using UnityEngine.SceneManagement; 
 
-public class Happ_Choose : MonoBehaviour
+public class Happ_Rain : MonoBehaviour
 {
-    string[] chooseMsg = {"Oh no! Your monster jumped into a puddle!","Good choice. Let's go home."}; 
+    string[] chooseMsg = {"Oh no! Its Raining and your monster is all wet! ","Good choice. Let's go home."}; 
     public TextMeshProUGUI chooseText; 
 
     public Camera mainCamera; 
@@ -18,7 +18,7 @@ public class Happ_Choose : MonoBehaviour
     int result; 
 
     public int[,] statusPatterns = new int[,]{
-        {-1,-1,-1},{1,1,1}
+        {0,-2,-1},{0,2,1}
     }; 
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Happ_Choose : MonoBehaviour
 
     }
 
-    public void Chose(){
+    public void ChoseRain(){
         buttonPanel.SetActive(false); 
 
         result = Random.Range(0,2); 
@@ -52,10 +52,10 @@ public class Happ_Choose : MonoBehaviour
             correctCamera.enabled = true; 
         }
 
-        StartCoroutine(WalkStart()); 
+        StartCoroutine(RainWalkStart()); 
     }
 
-    IEnumerator WalkStart(){
+    IEnumerator RainWalkStart(){
         Happ_Walk.runStart = true; 
         yield return new WaitForSeconds(3); 
         chooseText.text = chooseMsg[result]; 
@@ -65,10 +65,10 @@ public class Happ_Choose : MonoBehaviour
         chooseText.text += "Lastly, it's speed has changed by " + statusPatterns[result,2] + " Point(s)! \n"; 
         chooseText.text += "Click to go back. "; 
 
-        StartCoroutine(WaitClick()); 
+        StartCoroutine(RainWaitClick()); 
     }
 
-    IEnumerator WaitClick(){
+    IEnumerator RainWaitClick(){
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); 
         FinishController.days++; 
         GameController.timePoint = 100; 

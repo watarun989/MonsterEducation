@@ -48,6 +48,7 @@ public class Happ_sleep : MonoBehaviour
     IEnumerator WaitForClick(){
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); 
         FinishController.days ++; 
+        GameController.timePoint = 100; 
         SceneManager.LoadScene("Main"); 
     }
 }

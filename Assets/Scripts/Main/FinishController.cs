@@ -61,17 +61,18 @@ public class FinishController : MonoBehaviour
     }
 
     public void ReloadScene(){
-        GameController.timePoint = 100; 
         SceneManager.LoadScene("Main"); 
     }
 
     IEnumerator onFinishYesCoroutine(){
         yield return new WaitForSeconds(2.0f); 
-        int randScene = Random.Range(0,2); 
+        int randScene = Random.Range(0,4); 
         if(randScene == 0){
             SceneManager.LoadScene("Sleep"); 
-        }else{
+        }else if(randScene == 1){
             SceneManager.LoadScene("Puddle"); 
+        }else{
+            SceneManager.LoadScene("Rain"); 
         }
         
     }
