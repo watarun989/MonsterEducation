@@ -456,7 +456,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 186331558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037012956}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnClickSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &186331558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,7 +625,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 352805171}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037012956}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnClickAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &352805171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1527,6 +1551,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleStatus: 0
   mainMsg: {fileID: 2052008167}
+  attackButton: {fileID: 352805170}
+  defenceButton: {fileID: 1626780637}
+  speedButton: {fileID: 186331557}
+  php: 100
+  ehp: 100
+  playerHPSlider: {fileID: 1692493626}
+  enemyHPSlider: {fileID: 27835230}
 --- !u!4 &1037012957
 Transform:
   m_ObjectHideFlags: 0
@@ -2113,7 +2144,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1626780638}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1037012956}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: OnClickDefence
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1626780638
 MonoBehaviour:
   m_ObjectHideFlags: 0

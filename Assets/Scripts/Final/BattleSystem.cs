@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
+using UnityEngine.UI; 
 
 public enum BattleStatus
 {
@@ -30,13 +31,26 @@ public class BattleSystem : MonoBehaviour
     public BattleStatus battleStatus = BattleStatus.wait; 
     public TextMeshProUGUI mainMsg; 
 
+    public Button attackButton; 
+    public Button defenceButton; 
+    public Button speedButton; 
+
     string msg1; 
     string msg2; 
+
+    public float php = 100f; 
+    public float ehp = 100f; 
+
+    public GameObject playerHPSlider; 
+    public GameObject enemyHPSlider; 
 
     // Start is called before the first frame update
     void Start()
     {
         BattleWait(); 
+
+        playerHPSlider.GetComponent<Slider>().value = php/100; 
+        enemyHPSlider.GetComponent<Slider>().value = ehp/100; 
     }
 
     // Update is called once per frame
@@ -49,9 +63,13 @@ public class BattleSystem : MonoBehaviour
     {
         battleStatus = BattleStatus.wait; 
         mainMsg.text = "Click to choose your move"; 
+        ButtonActive(); 
     }
 
     public void OnClickAttack(){
+
+        ButtonDesable(); 
+
         if(battleStatus != BattleStatus.wait){
             return; 
         }
@@ -86,6 +104,9 @@ public class BattleSystem : MonoBehaviour
     }
 
     public void OnClickDefence(){
+
+        ButtonDesable(); 
+
         if(battleStatus != BattleStatus.wait){
             return; 
         }
@@ -120,6 +141,9 @@ public class BattleSystem : MonoBehaviour
     }
 
     public void OnClickSpeed(){
+
+        ButtonDesable(); 
+
         if(battleStatus != BattleStatus.wait){
             return; 
         }
@@ -169,7 +193,7 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    IEnumerator ShowBattle(msg1, string msg2){
+    IEnumerator ShowBattle(string msg1, string msg2){
         mainMsg.text = msg1; 
         
         while(!Input.GetMouseButtonDown(0)){
@@ -178,10 +202,29 @@ public class BattleSystem : MonoBehaviour
 
         mainMsg.text = msg2; 
 
+        Debug.Log("msg2 shown"); 
+
+        yield return new WaitForSeconds(0.3f); 
+
         while(!Input.GetMouseButtonDown(0)){
             yield return null;   //何もしない
         }
 
+        Debug.Log("return wait"); 
+
         BattleWait();   //待ち状態に戻す
+    }
+
+
+    public void ButtonActive(){
+        attackButton.interactable = true; 
+        defenceButton.interactable = true; 
+        speedButton.interactable = true; 
+    }
+
+    public void ButtonDesable(){
+        attackButton.interactable = false; 
+        defenceButton.interactable = false; 
+        speedButton.interactable = false; 
     }
 }
