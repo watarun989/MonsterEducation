@@ -44,10 +44,16 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerHPSlider; 
     public GameObject enemyHPSlider; 
 
+    public float[] enemyStatus = new float[3]; 
+
     // Start is called before the first frame update
     void Start()
     {
         BattleWait(); 
+
+        for(int i = 0,i < enemyStatus.Length,i++){
+            enemyStatus[i] = Random.Range(100,151); 
+        }
 
         playerHPSlider.GetComponent<Slider>().value = php/100; 
         enemyHPSlider.GetComponent<Slider>().value = ehp/100; 
@@ -56,7 +62,7 @@ public class BattleSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void BattleWait()
