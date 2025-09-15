@@ -38,11 +38,14 @@ public class BattleSystem : MonoBehaviour
     string msg1; 
     string msg2; 
 
-    public float php = 100f; 
-    public float ehp = 100f; 
+    public float php = 500f; 
+    public float ehp = 500f; 
 
     public GameObject playerHPSlider; 
     public GameObject enemyHPSlider; 
+
+    float playerPower; 
+    float enemyPower; 
 
     public float[] enemyStatus = new float[3]; 
 
@@ -51,12 +54,9 @@ public class BattleSystem : MonoBehaviour
     {
         BattleWait(); 
 
-        for(int i = 0,i < enemyStatus.Length,i++){
+        for(int i = 0;i < enemyStatus.Length;i++){
             enemyStatus[i] = Random.Range(100,151); 
         }
-
-        playerHPSlider.GetComponent<Slider>().value = php/100; 
-        enemyHPSlider.GetComponent<Slider>().value = ehp/100; 
     }
 
     // Update is called once per frame
@@ -65,14 +65,21 @@ public class BattleSystem : MonoBehaviour
 
     }
 
+    void SliderUpdate(){
+        playerHPSlider.GetComponent<Slider>().value = php/500; 
+        enemyHPSlider.GetComponent<Slider>().value = ehp/500; 
+    }
+
     void BattleWait()
     {
+        SliderUpdate(); 
         battleStatus = BattleStatus.wait; 
         mainMsg.text = "Click to choose your move"; 
         ButtonActive(); 
     }
 
     public void OnClickAttack(){
+        playerPower = 150f; 
 
         ButtonDesable(); 
 
@@ -89,27 +96,13 @@ public class BattleSystem : MonoBehaviour
         //勝敗の判定
         int result = Judge(BattleHand.attack,enemyHand); 
 
-        switch(result){
-            case 0: 
-                msg1 = "The actions were the same. "; 
-                msg2 = "The monster with the most statistics won. "; 
-                break; 
-            
-            case 1: 
-                msg1 = "Your monster's action sucseeded! "; 
-                msg2 = "The enemy has taken damage. "; 
-                break; 
-
-            case 2: 
-                msg1 = "The enemy's action sucseeded... "; 
-                msg2 = "Your monster has taken damage. "; 
-                break; 
-        }
+        ResultCol(result); 
 
         StartCoroutine(ShowBattle(msg1,msg2)); 
     }
 
     public void OnClickDefence(){
+        playerPower = 150f; 
 
         ButtonDesable(); 
 
@@ -126,27 +119,13 @@ public class BattleSystem : MonoBehaviour
         //勝敗の判定
         int result = Judge(BattleHand.defence,enemyHand); 
 
-        switch(result){
-            case 0: 
-                msg1 = "The actions were the same. "; 
-                msg2 = "The monster with the most statistics won. "; 
-                break; 
-            
-            case 1: 
-                msg1 = "Your monster's action sucseeded! "; 
-                msg2 = "The enemy has taken damage. "; 
-                break; 
+        ResultCol(result); 
 
-            case 2: 
-                msg1 = "The enemy's action sucseeded... "; 
-                msg2 = "Your monster has taken damage. "; 
-                break; 
-        }
-
-         StartCoroutine(ShowBattle(msg1,msg2)); 
+        StartCoroutine(ShowBattle(msg1,msg2)); 
     }
 
     public void OnClickSpeed(){
+        playerPower = 150f; 
 
         ButtonDesable(); 
 
@@ -163,28 +142,21 @@ public class BattleSystem : MonoBehaviour
         //勝敗の判定
         int result = Judge(BattleHand.speed,enemyHand); 
 
-        switch(result){
-            case 0: 
-                msg1 = "The actions were the same. "; 
-                msg2 = "The monster with the most statistics won. "; 
-                break; 
-            
-            case 1: 
-                msg1 = "Your monster's action sucseeded! "; 
-                msg2 = "The enemy has taken damage. "; 
-                break; 
-
-            case 2: 
-                msg1 = "The enemy's action sucseeded... "; 
-                msg2 = "Your monster has taken damage. "; 
-                break; 
-        }
+        ResultCol(result); 
 
         StartCoroutine(ShowBattle(msg1,msg2)); 
     }
 
     BattleHand EnemyHandling(){
-        return (BattleHand)Random.Range(1,4); 
+        int rand = Random.Range(1,4); 
+        if(rand == 1){
+            enemyPower = enemyStatus[0]; 
+        }else if(rand == 2){
+            enemyPower = enemyStatus[1]; 
+        }else if(rand == 3){
+            enemyPower = enemyStatus[2]; 
+        }
+        return (BattleHand)rand; 
     }
 
     int Judge(BattleHand playerHand,BattleHand enemyHand){
@@ -232,5 +204,46 @@ public class BattleSystem : MonoBehaviour
         attackButton.interactable = false; 
         defenceButton.interactable = false; 
         speedButton.interactable = false; 
+    }
+
+    void ResultCol(int result){
+        switch(result){
+            case 0: 
+                float damage; 
+
+                if(playerPower > enemyPower){
+                    damage = playerPower - enemyPower; 
+                    msg2 = "Your monster's ststistics were greater than your opponent. You damaged " + damage + " HP to your opponent. "; 
+                    ehp -= damage; 
+                }else if(playerPower < enemyPower){
+                    damage = enemyPower - playerPower; 
+                    msg2 = "Your monster's ststistics were less than your opponent. They damaged " + damage + " HP to your monster. "; 
+                    php -= damage; 
+                }else{
+                    msg2 = "Your monster's statistics were the same as the opponent. Nothing happened. "; 
+                }
+                msg1 = "The actions were the same. "; 
+                break; 
+            
+            case 1: 
+                damage = 2 * playerPower - enemyPower; 
+                if(damage < 0) damage = 0; 
+
+                msg1 = "Your monster's action sucseeded! "; 
+                msg2 = "The enemy has taken " + damage + " damage. "; 
+
+                ehp -= damage; 
+                break; 
+
+            case 2: 
+                damage = 1.5f * enemyPower - playerPower; 
+                if(damage < 0) damage = 0; 
+
+                msg1 = "The enemy's action sucseeded... "; 
+                msg2 = "Your monster has taken " + damage + " damage. "; 
+
+                php -= damage; 
+                break; 
+        }
     }
 }
