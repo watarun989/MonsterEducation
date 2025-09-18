@@ -215,10 +215,20 @@ public class BattleSystem : MonoBehaviour
                     damage = playerPower - enemyPower; 
                     msg2 = "Your monster's ststistics were greater than your opponent. You damaged " + damage + " HP to your opponent. "; 
                     ehp -= damage; 
+
+                    if(ehp <= 0){
+                        battleStatus = BattleStatus.win; 
+                    }
+
                 }else if(playerPower < enemyPower){
                     damage = enemyPower - playerPower; 
                     msg2 = "Your monster's ststistics were less than your opponent. They damaged " + damage + " HP to your monster. "; 
                     php -= damage; 
+
+                    if(php <= 0){
+                        battleStatus = BattleStatus.loose; 
+                    }
+
                 }else{
                     msg2 = "Your monster's statistics were the same as the opponent. Nothing happened. "; 
                 }
@@ -233,6 +243,11 @@ public class BattleSystem : MonoBehaviour
                 msg2 = "The enemy has taken " + damage + " damage. "; 
 
                 ehp -= damage; 
+
+                if(ehp <= 0){
+                        battleStatus = BattleStatus.win; 
+                    }
+
                 break; 
 
             case 2: 
@@ -243,6 +258,11 @@ public class BattleSystem : MonoBehaviour
                 msg2 = "Your monster has taken " + damage + " damage. "; 
 
                 php -= damage; 
+
+                if(php <= 0){
+                    battleStatus = BattleStatus.loose; 
+                }
+
                 break; 
         }
     }
