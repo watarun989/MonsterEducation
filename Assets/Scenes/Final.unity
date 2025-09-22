@@ -263,7 +263,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1096177575}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 500
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1554,10 +1554,14 @@ MonoBehaviour:
   attackButton: {fileID: 352805170}
   defenceButton: {fileID: 1626780637}
   speedButton: {fileID: 186331557}
-  php: 100
-  ehp: 100
+  php: 500
+  ehp: 500
   playerHPSlider: {fileID: 1692493626}
   enemyHPSlider: {fileID: 27835230}
+  enemyStatus:
+  - 0
+  - 0
+  - 0
 --- !u!4 &1037012957
 Transform:
   m_ObjectHideFlags: 0
@@ -2354,7 +2358,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1788589161}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 500
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:

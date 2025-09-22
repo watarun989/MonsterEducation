@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
 using UnityEngine.UI; 
+using UnityEngine.SceneManagement; 
 
 public enum BattleStatus
 {
@@ -12,8 +13,8 @@ public enum BattleStatus
     enemyAttack,
     playerDamage,
     enemyDamage,
-    win,
-    lose,
+    won,
+    lost,
     special, 
 }
 
@@ -66,8 +67,8 @@ public class BattleSystem : MonoBehaviour
     }
 
     void SliderUpdate(){
-        playerHPSlider.GetComponent<Slider>().value = php/500; 
-        enemyHPSlider.GetComponent<Slider>().value = ehp/500; 
+        playerHPSlider.GetComponent<Slider>().value = php; 
+        enemyHPSlider.GetComponent<Slider>().value = ehp; 
     }
 
     void BattleWait()
@@ -79,7 +80,7 @@ public class BattleSystem : MonoBehaviour
     }
 
     public void OnClickAttack(){
-        playerPower = 150f; 
+        playerPower = StatusController.attackPoint; 
 
         ButtonDesable(); 
 
@@ -98,11 +99,15 @@ public class BattleSystem : MonoBehaviour
 
         ResultCol(result); 
 
-        StartCoroutine(ShowBattle(msg1,msg2)); 
+        if(battleStatus != BattleStatus.result){
+            StartCoroutine(BattleResult()); 
+        }else{
+            StartCoroutine(ShowBattle(msg1,msg2)); 
+        }
     }
 
     public void OnClickDefence(){
-        playerPower = 150f; 
+        playerPower = StatusController.defencePoint; 
 
         ButtonDesable(); 
 
@@ -121,11 +126,15 @@ public class BattleSystem : MonoBehaviour
 
         ResultCol(result); 
 
-        StartCoroutine(ShowBattle(msg1,msg2)); 
+        if(battleStatus != BattleStatus.result){
+            StartCoroutine(BattleResult()); 
+        }else{
+            StartCoroutine(ShowBattle(msg1,msg2)); 
+        }
     }
 
     public void OnClickSpeed(){
-        playerPower = 150f; 
+        playerPower = StatusController.speedPoint; 
 
         ButtonDesable(); 
 
@@ -144,7 +153,11 @@ public class BattleSystem : MonoBehaviour
 
         ResultCol(result); 
 
-        StartCoroutine(ShowBattle(msg1,msg2)); 
+        if(battleStatus != BattleStatus.result){
+            StartCoroutine(BattleResult()); 
+        }else{
+            StartCoroutine(ShowBattle(msg1,msg2)); 
+        }
     }
 
     BattleHand EnemyHandling(){
@@ -217,7 +230,7 @@ public class BattleSystem : MonoBehaviour
                     ehp -= damage; 
 
                     if(ehp <= 0){
-                        battleStatus = BattleStatus.win; 
+                        battleStatus = BattleStatus.won; 
                     }
 
                 }else if(playerPower < enemyPower){
@@ -226,7 +239,7 @@ public class BattleSystem : MonoBehaviour
                     php -= damage; 
 
                     if(php <= 0){
-                        battleStatus = BattleStatus.loose; 
+                        battleStatus = BattleStatus.lost; 
                     }
 
                 }else{
@@ -245,7 +258,7 @@ public class BattleSystem : MonoBehaviour
                 ehp -= damage; 
 
                 if(ehp <= 0){
-                        battleStatus = BattleStatus.win; 
+                        battleStatus = BattleStatus.won; 
                     }
 
                 break; 
@@ -260,10 +273,24 @@ public class BattleSystem : MonoBehaviour
                 php -= damage; 
 
                 if(php <= 0){
-                    battleStatus = BattleStatus.loose; 
+                    battleStatus = BattleStatus.lost; 
                 }
 
                 break; 
         }
+    }
+
+    IEnumerator BattleResult(){
+        if(battleStatus == BattleStatus.won){
+            mainMsg.text = "Your player has won the battle!"; 
+        }else{
+            mainMsg.text = "The opponet has won the battle..."; 
+        }
+
+        while(!Input.GetMouseButtonDown(0)){
+            yield return null; 
+        }
+
+        SceneManager.LoadScene("End"); 
     }
 }
