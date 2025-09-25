@@ -71,7 +71,12 @@ public class Happ_Rain : MonoBehaviour
     IEnumerator RainWaitClick(){
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0)); 
         FinishController.days++; 
-        GameController.timePoint = 100; 
-        SceneManager.LoadScene("Main"); 
+        GameController.timePoint = 30; 
+        
+        if(FinishController.days == 4){
+            SceneManager.LoadScene("Final"); 
+        }else{
+            SceneManager.LoadScene("Main"); 
+        }
     }
 }

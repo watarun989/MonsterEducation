@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rain.unity
     guid: 564a9ba8a81d042e7ac8ecb1503d272b
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 932edc3cd3d8741f1a8d0e2bb67fc891
   m_configObjects: {}

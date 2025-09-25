@@ -71,12 +71,10 @@ public class BattleSystem : MonoBehaviour
         enemyHPSlider.GetComponent<Slider>().value = ehp; 
     }
 
-    void BattleWait()
-    {
+    void BattleWait(){
         SliderUpdate(); 
         battleStatus = BattleStatus.wait; 
         mainMsg.text = "Click to choose your move"; 
-        ButtonActive(); 
     }
 
     public void OnClickAttack(){
@@ -104,6 +102,9 @@ public class BattleSystem : MonoBehaviour
         }else{
             StartCoroutine(ShowBattle(msg1,msg2)); 
         }
+
+        ButtonActive(); 
+        attackButton.interactable = false; 
     }
 
     public void OnClickDefence(){
@@ -131,6 +132,9 @@ public class BattleSystem : MonoBehaviour
         }else{
             StartCoroutine(ShowBattle(msg1,msg2)); 
         }
+
+        ButtonActive(); 
+        defenceButton.interactable = false; 
     }
 
     public void OnClickSpeed(){
@@ -158,6 +162,9 @@ public class BattleSystem : MonoBehaviour
         }else{
             StartCoroutine(ShowBattle(msg1,msg2)); 
         }
+
+        ButtonActive(); 
+        speedButton.interactable = false; 
     }
 
     BattleHand EnemyHandling(){

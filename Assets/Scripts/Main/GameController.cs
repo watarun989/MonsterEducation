@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     static public string gameStatus; 
-    static public int timePoint = 100; 
+    static public int timePoint = 30; 
 
     // Start is called before the first frame update
     void Start()
