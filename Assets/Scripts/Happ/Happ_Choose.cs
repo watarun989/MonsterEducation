@@ -18,7 +18,7 @@ public class Happ_Choose : MonoBehaviour
     int result; 
 
     public int[,] statusPatterns = new int[,]{
-        {-1,-1,-1},{1,1,1}
+        {-6,-5,-3},{8,7,9}
     }; 
 
     // Start is called before the first frame update

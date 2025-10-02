@@ -5,9 +5,9 @@ using TMPro;
 
 public class StatusController : MonoBehaviour
 {
-    static public int attackPoint = 10; 
-    static public int defencePoint = 20; 
-    static public int speedPoint = 50; 
+    static public int attackPoint = 30; 
+    static public int defencePoint = 30; 
+    static public int speedPoint = 30; 
     public TextMeshProUGUI attackText; 
     public TextMeshProUGUI defenceText; 
     public TextMeshProUGUI speedText; 

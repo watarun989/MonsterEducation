@@ -56,7 +56,7 @@ public class BattleSystem : MonoBehaviour
         BattleWait(); 
 
         for(int i = 0;i < enemyStatus.Length;i++){
-            enemyStatus[i] = Random.Range(100,151); 
+            enemyStatus[i] = Random.Range(40,71); 
         }
     }
 

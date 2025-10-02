@@ -12,7 +12,7 @@ public class Happ_sleep : MonoBehaviour
     public GameObject zzz; 
     public GameObject buttonPanel; 
     public int[,] statusPatterns = new int[,]{
-        {1,2,0},{0,1,-1},{0,-2,0}
+        {7,15,5},{6,-10,7},{-4,-8,-5}
     }; 
     public TextMeshProUGUI sleepText; 
 

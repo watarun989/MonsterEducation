@@ -18,7 +18,7 @@ public class Happ_Rain : MonoBehaviour
     int result; 
 
     public int[,] statusPatterns = new int[,]{
-        {0,-2,-1},{0,2,1}
+        {0,-7,-4},{1,10,5}
     }; 
 
     // Start is called before the first frame update

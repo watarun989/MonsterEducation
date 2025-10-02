@@ -14,7 +14,7 @@ public class Happ_running : MonoBehaviour
     public Camera cameraC; //Run Camera
     public GameObject buttonPanel; 
     public int[,] statusPatterns = new int[,]{
-        {1,0,2},{1,0,-1},{-2,0,0}
+        {7,4,10},{6,0,-7},{-6,-3,-1}
     }; 
     public TextMeshProUGUI runText; 
 
