@@ -50,6 +50,8 @@ public class BattleSystem : MonoBehaviour
 
     public float[] enemyStatus = new float[3]; 
 
+    public GameObject WaitCamera; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,7 @@ public class BattleSystem : MonoBehaviour
     void BattleWait(){
         SliderUpdate(); 
         battleStatus = BattleStatus.wait; 
+        WaitCamera.SetActive(true); 
         mainMsg.text = "Click to choose your move"; 
     }
 
