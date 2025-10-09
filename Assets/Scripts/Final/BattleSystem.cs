@@ -50,7 +50,12 @@ public class BattleSystem : MonoBehaviour
 
     public float[] enemyStatus = new float[3]; 
 
-    public GameObject WaitCamera; 
+    public GameObject cameraWait; 
+    public GameObject cameraPlayer; 
+    public GameObject cameraEnemy; 
+
+    bool[] msg1Cameras = new bool[3]; 
+    bool[] msg2Cameras = new bool[3]; 
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +81,7 @@ public class BattleSystem : MonoBehaviour
     void BattleWait(){
         SliderUpdate(); 
         battleStatus = BattleStatus.wait; 
-        WaitCamera.SetActive(true); 
+        cameraWait.SetActive(true); 
         mainMsg.text = "Click to choose your move"; 
     }
 
@@ -195,11 +200,19 @@ public class BattleSystem : MonoBehaviour
     }
 
     IEnumerator ShowBattle(string msg1, string msg2){
+        cameraWait.SetActive(msg1Cameras[0]); 
+        cameraPlayer.SetActive(msg1Cameras[1]); 
+        cameraEnemy.SetActive(msg1Cameras[2]); 
+
         mainMsg.text = msg1; 
         
         while(!Input.GetMouseButtonDown(0)){
             yield return null;   //何もしない
         }
+
+        cameraWait.SetActive(msg2Cameras[0]); 
+        cameraPlayer.SetActive(msg2Cameras[1]); 
+        cameraEnemy.SetActive(msg2Cameras[2]); 
 
         mainMsg.text = msg2; 
 
@@ -235,6 +248,13 @@ public class BattleSystem : MonoBehaviour
                 float damage; 
 
                 if(playerPower > enemyPower){
+                    msg1Cameras[0] = false; 
+                    msg1Cameras[1] = true; 
+                    msg1Cameras[2] = false; 
+                    msg2Cameras[0] = false; 
+                    msg2Cameras[1] = false; 
+                    msg2Cameras[2] = true; 
+
                     damage = playerPower - enemyPower; 
                     msg2 = "Your monster's ststistics were greater than your opponent. You damaged " + damage + " HP to your opponent. "; 
                     ehp -= damage; 
@@ -244,6 +264,13 @@ public class BattleSystem : MonoBehaviour
                     }
 
                 }else if(playerPower < enemyPower){
+                    msg1Cameras[0] = false; 
+                    msg1Cameras[1] = false; 
+                    msg1Cameras[2] = true; 
+                    msg2Cameras[0] = false; 
+                    msg2Cameras[1] = true; 
+                    msg2Cameras[2] = false; 
+
                     damage = enemyPower - playerPower; 
                     msg2 = "Your monster's ststistics were less than your opponent. They damaged " + damage + " HP to your monster. "; 
                     php -= damage; 
@@ -253,12 +280,27 @@ public class BattleSystem : MonoBehaviour
                     }
 
                 }else{
+                    msg1Cameras[0] = true; 
+                    msg1Cameras[1] = false; 
+                    msg1Cameras[2] = false; 
+                    msg2Cameras[0] = true; 
+                    msg2Cameras[1] = false; 
+                    msg2Cameras[2] = false; 
+
                     msg2 = "Your monster's statistics were the same as the opponent. Nothing happened. "; 
                 }
                 msg1 = "The actions were the same. "; 
+
                 break; 
             
             case 1: 
+                msg1Cameras[0] = false; 
+                msg1Cameras[1] = true; 
+                msg1Cameras[2] = false; 
+                msg2Cameras[0] = false; 
+                msg2Cameras[1] = false; 
+                msg2Cameras[2] = true; 
+
                 damage = 2 * playerPower - enemyPower; 
                 if(damage < 0) damage = 0; 
 
@@ -269,11 +311,18 @@ public class BattleSystem : MonoBehaviour
 
                 if(ehp <= 0){
                         battleStatus = BattleStatus.won; 
-                    }
+                }
 
                 break; 
 
             case 2: 
+                msg1Cameras[0] = false; 
+                msg1Cameras[1] = false; 
+                msg1Cameras[2] = true; 
+                msg2Cameras[0] = false; 
+                msg2Cameras[1] = true; 
+                msg2Cameras[2] = false; 
+
                 damage = 1.5f * enemyPower - playerPower; 
                 if(damage < 0) damage = 0; 
 
