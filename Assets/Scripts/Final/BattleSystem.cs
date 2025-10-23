@@ -57,9 +57,16 @@ public class BattleSystem : MonoBehaviour
     bool[] msg1Cameras = new bool[3]; 
     bool[] msg2Cameras = new bool[3]; 
 
+    Animator playerAnimator; 
+    Animator enemyAnimator; 
+
     // Start is called before the first frame update
     void Start()
     {
+        //プレイヤータグがついているオブジェクトのコンポーネントを取得する
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>(); 
+        enemyAnimator = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>(); 
+
         BattleWait(); 
 
         for(int i = 0;i < enemyStatus.Length;i++){
@@ -82,6 +89,10 @@ public class BattleSystem : MonoBehaviour
         SliderUpdate(); 
         battleStatus = BattleStatus.wait; 
         cameraWait.SetActive(true); 
+        playerAnimator.SetBool("attack1",false); 
+        playerAnimator.SetBool("attack2",false); 
+        playerAnimator.SetBool("damage",false); 
+        enemyAnimator.SetBool("attack",false); 
         mainMsg.text = "Click to choose your move"; 
     }
 
@@ -193,8 +204,17 @@ public class BattleSystem : MonoBehaviour
         }else if((playerHand == BattleHand.attack && enemyHand == BattleHand.defence) 
              || (playerHand == BattleHand.defence && enemyHand == BattleHand.speed) 
              || (playerHand == BattleHand.speed && enemyHand == BattleHand.attack)){
+            if(Random.Range(0,2) == 0){
+                playerAnimator.SetBool("attack1",true); 
+            }else{
+                playerAnimator.SetBool("attack2",true); 
+            }
+            
             return 1;   //勝ち
         }else{
+            playerAnimator.SetBool("damage",true); 
+            enemyAnimator.SetBool("attack",true); 
+
             return 2;   //負け
         }
     }
