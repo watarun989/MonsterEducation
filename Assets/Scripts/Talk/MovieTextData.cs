@@ -7,8 +7,8 @@ public class TalkUnit
     public string talk;
 }
 
-[CreateAssetMenu(fileName = "TalkData", menuName = "TalkData")]
-public class TalkData : ScriptableObject
+[CreateAssetMenu(fileName = "MovieText", menuName = "MovieTextData")]
+public class MovieTextData : ScriptableObject
 {
-    public TalkUnit[] talkDatas;
+    public TalkUnit[] talkDatas; 
 }

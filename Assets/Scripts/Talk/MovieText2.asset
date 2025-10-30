@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc324ff5ec476466db49ce39bbea9a32, type: 3}
-  m_Name: Ending1Talk
+  m_Name: MovieText2
   m_EditorClassIdentifier: 
   datas:
-  - text: 
+  - text: 'The monster has lost the battle against the opponent. '
+  - text: 'Luckly, this is not a tournament, so there are chances that the moster
+      is still going to win. '
+  - text: 'Is the moster going to win the competition? '
+  - text: End of Story One
